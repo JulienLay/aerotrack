@@ -21,7 +21,7 @@ public class JwtService {
     @Value("${application.jwt.expiration}")
     private long expiration;
 
-    private SecretKey getSignKey() {
+    private SecretKey getKey() {
         byte[] keyBytes = Decoders.BASE64.decode(secret);
         return Keys.hmacShaKeyFor(keyBytes);
     }
@@ -32,17 +32,17 @@ public class JwtService {
         claims.put("role", user.getRole().name());
 
         return Jwts.builder()
-                .claims(claims)
                 .subject(user.getUsername())
+                .claims(claims)
                 .issuedAt(new Date())
                 .expiration(new Date(System.currentTimeMillis() + expiration))
-                .signWith(getSignKey())
+                .signWith(getKey())
                 .compact();
     }
 
     public String extractUsername(String token) {
         return Jwts.parser()
-                .verifyWith(getSignKey())
+                .verifyWith(getKey())
                 .build()
                 .parseSignedClaims(token)
                 .getPayload()
