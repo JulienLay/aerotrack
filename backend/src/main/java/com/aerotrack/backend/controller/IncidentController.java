@@ -12,8 +12,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Page;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/api/incidents")
 @RequiredArgsConstructor
