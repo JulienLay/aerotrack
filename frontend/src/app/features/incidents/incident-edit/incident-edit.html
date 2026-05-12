@@ -1,0 +1,24 @@
+<mat-card>
+
+  <h2>Edit Incident</h2>
+
+  <input [(ngModel)]="title" placeholder="Title">
+  <input [(ngModel)]="description" placeholder="Description">
+
+  <select [(ngModel)]="severity">
+    <option value="LOW">LOW</option>
+    <option value="MEDIUM">MEDIUM</option>
+    <option value="HIGH">HIGH</option>
+  </select>
+
+  <select [(ngModel)]="status">
+    <option value="OPEN">OPEN</option>
+    <option value="IN_PROGRESS">IN_PROGRESS</option>
+    <option value="CLOSED">CLOSED</option>
+  </select>
+
+  <button mat-raised-button color="primary" (click)="update()">
+    Save
+  </button>
+
+</mat-card>

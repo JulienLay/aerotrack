@@ -29,8 +29,9 @@ export class IncidentList implements OnInit {
   displayedColumns: string[] = [
     'id',
     'title',
+    'description',
     'severity',
-    'status',
+    'status'
   ];
 
   page = 0;
@@ -38,6 +39,7 @@ export class IncidentList implements OnInit {
   totalElements = 0;
   keyword = '';
   severity = '';
+  role: string | null = null;
 
   constructor(
     private incidentService: IncidentService,
@@ -45,19 +47,26 @@ export class IncidentList implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.role = localStorage.getItem('role');
+
+    if (this.role === 'ADMIN') {
+      this.displayedColumns.push('actions');
+    }
+
     this.load();
   }
 
   load() {
-  this.incidentService.getAll(this.page, this.size, this.keyword, this.severity)
-    .subscribe(res => {
-      this.incidents = res.content;
-      this.totalElements = res.totalElements;
-    });
+    this.incidentService.getAll(this.page, this.size, this.keyword, this.severity)
+      .subscribe(res => {
+        this.incidents = res.content;
+        this.totalElements = res.totalElements;
+      });
   }
 
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('role');
     this.router.navigate(['/login']);
   }
 
@@ -79,5 +88,19 @@ export class IncidentList implements OnInit {
     this.severity = '';
     this.page = 0;
     this.load();
+  }
+
+  openCreate() {
+    this.router.navigate(['/incidents/create']);
+  }
+
+  openEdit(id: number) {
+    this.router.navigate(['/incidents', id, 'edit']);
+  }
+  
+  delete(id: number) {
+    this.incidentService.delete(id).subscribe(() => {
+      this.load();
+    });
   }
 }

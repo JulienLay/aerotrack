@@ -1,0 +1,43 @@
+<h2>Create Incident</h2>
+
+<form (ngSubmit)="create()">
+
+  <mat-form-field appearance="outline">
+    <mat-label>Title</mat-label>
+    <input matInput [(ngModel)]="title" name="title">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Severity</mat-label>
+    <select matNativeControl [(ngModel)]="severity" name="severity">
+      <option value="LOW">LOW</option>
+      <option value="MEDIUM">MEDIUM</option>
+      <option value="HIGH">HIGH</option>
+    </select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Description</mat-label>
+    <textarea matInput [(ngModel)]="description" name="description"></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Status</mat-label>
+    <select matNativeControl [(ngModel)]="status" name="status">
+      <option value="OPEN">OPEN</option>
+      <option value="IN_PROGRESS">IN_PROGRESS</option>
+      <option value="CLOSED">CLOSED</option>
+    </select>
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-button type="button" (click)="cancel()">
+      Cancel
+    </button>
+
+    <button mat-raised-button color="primary" type="submit">
+      Create
+    </button>
+  </div>
+
+</form>

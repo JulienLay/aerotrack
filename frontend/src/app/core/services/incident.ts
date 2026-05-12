@@ -13,20 +13,36 @@ export class IncidentService {
 
   getAll(page: number, size: number, keyword?: string, severity?: string) {
 
-  let url = `${this.apiUrl}?page=${page}&size=${size}`;
+    let url = `${this.apiUrl}?page=${page}&size=${size}&sort=id,desc`;
 
-  if (keyword || severity) {
-    url = `${this.apiUrl}/search?page=${page}&size=${size}`;
+    if (keyword || severity) {
+      url = `${this.apiUrl}/search?page=${page}&size=${size}&sort=id,desc`;
 
-    if (keyword) {
-      url += `&keyword=${keyword}`;
+      if (keyword) {
+        url += `&keyword=${keyword}`;
+      }
+
+      if (severity) {
+        url += `&severity=${severity}`;
+      }
     }
 
-    if (severity) {
-      url += `&severity=${severity}`;
-    }
+    return this.http.get<any>(url);
   }
 
-  return this.http.get<any>(url);
-}
+  create(data: any) {
+    return this.http.post<any>(this.apiUrl, data);
+  }
+  
+  getById(id: number) {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  }
+  
+  update(id: number, data: any) {
+    return this.http.put<any>(`${this.apiUrl}/${id}`, data);
+  }
+
+  delete(id: number) {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
 }

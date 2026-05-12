@@ -20,6 +20,8 @@ export class AuthService {
     }).pipe(
       tap(response => {
         localStorage.setItem('token', response.token);
+        const payload = JSON.parse(atob(response.token.split('.')[1]));
+        localStorage.setItem('role', payload.role);
       })
     );
   }
@@ -30,6 +32,7 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem('role');
   }
 
   isLoggedIn(): boolean {

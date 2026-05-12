@@ -25,14 +25,16 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
 
     catchError((error: HttpErrorResponse) => {
 
-      if (error.status === 401 || error.status === 403) {
+    if (error.status === 401) {
+      localStorage.removeItem('token');
+      localStorage.removeItem('role');
+      router.navigate(['/login']);
+    }
 
-        localStorage.removeItem('token');
-
-        router.navigate(['/login']);
-      }
-
+    if (error.status === 403) {
       return throwError(() => error);
-    })
-  );
+    }
+
+    return throwError(() => error);
+  }));
 };
