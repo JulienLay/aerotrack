@@ -2,9 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 
-import { Incident } from '../models/incident';
-import { Page } from '../models/page';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -14,9 +11,22 @@ export class IncidentService {
 
   constructor(private http: HttpClient) {}
 
-  getAll(page: number = 0, size: number = 10) {
-    return this.http.get<Page<Incident>>(
-      `${this.apiUrl}?page=${page}&size=${size}`
-    );
+  getAll(page: number, size: number, keyword?: string, severity?: string) {
+
+  let url = `${this.apiUrl}?page=${page}&size=${size}`;
+
+  if (keyword || severity) {
+    url = `${this.apiUrl}/search?page=${page}&size=${size}`;
+
+    if (keyword) {
+      url += `&keyword=${keyword}`;
+    }
+
+    if (severity) {
+      url += `&severity=${severity}`;
+    }
   }
+
+  return this.http.get<any>(url);
+}
 }
