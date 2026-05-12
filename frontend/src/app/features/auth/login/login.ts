@@ -45,11 +45,4 @@ export class Login {
         }
       });
   }
-
-  login() {
-    this.authService.login(this.email, this.password)
-      .subscribe(res => {
-        localStorage.setItem('token', res.token);
-      });
-  }
 }

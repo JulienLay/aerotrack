@@ -1,11 +1,10 @@
 <h1>Incidents</h1>
 
-<div *ngFor="let incident of incidents">
+<button mat-raised-button color="warn" (click)="logout()">
+  Logout
+</button>
 
-  <h3>{{ incident.title }}</h3>
-
-  <p>{{ incident.description }}</p>
-
-  <hr>
-
+<div *ngFor="let i of incidents">
+  <p><b>{{ i.title }}</b></p>
+  <p>{{ i.severity }} - {{ i.status }}</p>
 </div>
