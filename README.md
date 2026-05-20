@@ -124,11 +124,11 @@ ng serve
 
 📌 Project Status
 
-✔ Backend MVP completed
-✔ Frontend MVP completed
-🚧 UI polish in progress
-🚧 Docker setup next step
-🚧 CI/CD (GitHub Actions) planned
+- ✔ Backend MVP completed
+- ✔ Frontend MVP completed
+- 🚧 UI polish in progress
+- 🚧 Docker setup next step
+- 🚧 CI/CD (GitHub Actions) planned
 
 ---
 
@@ -139,7 +139,7 @@ This project simulates an internal aviation incident management system used in e
 ---
 
 🧭 Next Steps
-Dockerize backend + frontend + PostgreSQL
-Add docker-compose for full stack startup
-Add CI/CD pipeline (GitHub Actions)
-Add unit tests (backend + frontend)
+- Dockerize backend + frontend + PostgreSQL
+- Add docker-compose for full stack startup
+- Add CI/CD pipeline (GitHub Actions)
+- Add unit tests (backend + frontend)
