@@ -99,23 +99,28 @@
 
       <td mat-cell *matCellDef="let incident">
 
-        <button
+        <div
           *ngIf="role === 'ADMIN'"
-          mat-button
-          color="primary"
-          (click)="openEdit(incident.id)"
+          class="actions-buttons"
         >
-          Edit
-        </button>
 
-        <button
-          *ngIf="role === 'ADMIN'"
-          mat-button
-          color="warn"
-          (click)="delete(incident.id)"
-        >
-          Delete
-        </button>
+          <button
+            mat-button
+            color="primary"
+            (click)="openEdit(incident.id)"
+          >
+            Edit
+          </button>
+
+          <button
+            mat-button
+            color="warn"
+            (click)="delete(incident.id)"
+          >
+            Delete
+          </button>
+
+        </div>
 
       </td>
     </ng-container>

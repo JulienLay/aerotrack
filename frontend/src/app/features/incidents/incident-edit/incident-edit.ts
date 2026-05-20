@@ -20,7 +20,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatSelectModule, 
     MatButtonModule
   ],
-  templateUrl: './incident-edit.html'
+  templateUrl: './incident-edit.html',
+  styleUrl: './incident-edit.css'
 })
 export class IncidentEdit implements OnInit {
 
@@ -56,5 +57,9 @@ export class IncidentEdit implements OnInit {
     }).subscribe(() => {
       this.router.navigate(['/incidents']);
     });
+  }
+
+  cancel() {
+    this.router.navigate(['/incidents']);
   }
 }

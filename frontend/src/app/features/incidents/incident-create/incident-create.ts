@@ -7,17 +7,22 @@ import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { IncidentService } from '../../../core/services/incident';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
+
 
 @Component({
   selector: 'app-incident-create',
+  styleUrls: ['./incident-create.css'],
   standalone: true,
   imports: [
     CommonModule,
     FormsModule,
+    MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    FormsModule
   ],
   templateUrl: './incident-create.html'
 })

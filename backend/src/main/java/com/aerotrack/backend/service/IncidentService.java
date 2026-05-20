@@ -44,6 +44,13 @@ public class IncidentService {
         return incidents.map(mapper::toResponse);
     }
 
+    public IncidentResponse getById(Long id) {
+        Incident incident = repository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Incident not found"));
+
+        return mapper.toResponse(incident);
+    }
+
     public IncidentResponse update(Long id, IncidentRequest request) {
 
         Incident incident = repository.findById(id)

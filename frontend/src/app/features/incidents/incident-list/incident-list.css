@@ -1,10 +1,7 @@
 mat-card {
-  margin: 32px;
   padding: 24px;
-}
-
-.full-width {
-  width: 100%;
+  margin: 32px auto;
+  max-width: 1200px;
 }
 
 .header {
@@ -16,6 +13,27 @@ mat-card {
 
 .filters {
   display: flex;
-  gap: 12px;
-  margin-bottom: 16px;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.filters input,
+.filters select {
+  padding: 8px;
+  min-width: 200px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.actions-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+button {
+  white-space: nowrap;
 }

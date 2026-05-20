@@ -40,6 +40,11 @@ public class IncidentController {
         return service.search(keyword, severity, page, size);
     }
 
+    @GetMapping("/{id}")
+    public IncidentResponse getById(@PathVariable Long id) {
+        return service.getById(id);
+    }
+
     @PostMapping
     public IncidentResponse create(@Valid @RequestBody IncidentRequest request) {
         return service.create(request);
