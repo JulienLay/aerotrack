@@ -1,7 +1,7 @@
-mat-card {
-  padding: 24px;
-  margin: 32px auto;
-  max-width: 1200px;
+.page {
+  padding: 32px;
+  max-width: 1400px;
+  margin: auto;
 }
 
 .header {
@@ -11,29 +11,98 @@ mat-card {
   margin-bottom: 24px;
 }
 
+.header h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.header p {
+  margin-top: 6px;
+  color: #666;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.filters-card,
+.table-card {
+  margin-bottom: 24px;
+  padding: 20px;
+  border-radius: 16px;
+}
+
 .filters {
   display: flex;
   gap: 16px;
   align-items: center;
-  margin-bottom: 24px;
   flex-wrap: wrap;
 }
 
 .filters input,
 .filters select {
-  padding: 8px;
-  min-width: 200px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  min-width: 220px;
 }
 
 .full-width {
   width: 100%;
 }
 
+th {
+  font-weight: 600;
+}
+
+td,
+th {
+  padding: 16px !important;
+}
+
+tr:hover {
+  background: #fafafa;
+}
+
+.badge {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.high {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.medium {
+  background: #fff3e0;
+  color: #ef6c00;
+}
+
+.low {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.open {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.progress {
+  background: #fff8e1;
+  color: #f9a825;
+}
+
+.closed {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
 .actions-buttons {
   display: flex;
   gap: 8px;
-}
-
-button {
-  white-space: nowrap;
 }
