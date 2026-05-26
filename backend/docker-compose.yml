@@ -1,0 +1,34 @@
+services:
+
+  backend:
+    build: .
+    container_name: aerotrack-backend
+
+    ports:
+      - "8080:8080"
+
+    depends_on:
+      - db
+
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/aerotrack_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: admin
+
+  db:
+    image: postgres:16
+    container_name: aerotrack-db
+
+    environment:
+      POSTGRES_DB: aerotrack_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
