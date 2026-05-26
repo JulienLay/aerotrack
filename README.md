@@ -9,7 +9,7 @@ This project is a portfolio-grade application built to demonstrate backend (Spri
 ## 🧰 Tech Stack
 
 ### Backend
-- Java 17
+- Java 21
 - Spring Boot 3
 - Spring Security + JWT
 - PostgreSQL
@@ -50,10 +50,11 @@ This project is a portfolio-grade application built to demonstrate backend (Spri
 - Reactive forms (create / edit)
 - Clean layout with reusable components
 
-### DevOps / Quality (planned)
-- Dockerized deployment
-- CI/CD pipeline with GitHub Actions
-- Unit tests (backend & frontend)
+### DevOps / Quality
+- Backend + PostgreSQL containerized using Docker Compose
+- Reproducible local environment via Docker
+- CI/CD pipeline (GitHub Actions) - planned
+- Unit tests (backend & frontend) - planned
 
 ---
 
@@ -62,7 +63,10 @@ This project is a portfolio-grade application built to demonstrate backend (Spri
 ### Backend
 Clean layered architecture:
 
+```
 Controller → Service → Repository → Mapper → DTO
+```
+
 
 ### Frontend
 Feature-based Angular structure:
@@ -107,17 +111,19 @@ Feature-based Angular structure:
 
 ## 🧪 Run Locally
 
-### Backend
-```bash id="run_backend"
+### Backend (without Docker)
+
+```bash
 cd backend
 mvn spring-boot:run
 ```
 
-### Frontend
-```bash id="run_frontend"
-cd frontend
-npm install
-ng serve
+### Backend + Database (Docker)
+
+```bash
+cd backend
+mvn clean package -DskipTests
+docker compose up --build
 ```
 
 ---
@@ -126,9 +132,10 @@ ng serve
 
 - ✔ Backend MVP completed
 - ✔ Frontend MVP completed
-- 🚧 UI polish in progress
-- 🚧 Docker setup next step
+- ✔ Docker setup completed (backend + database)
+- 🚧 Frontend containerization (next step)
 - 🚧 CI/CD (GitHub Actions) planned
+- 🚧 Unit tests (backend + frontend) planned
 
 ---
 
@@ -139,7 +146,7 @@ This project simulates an internal aviation incident management system used in e
 ---
 
 🧭 Next Steps
-- Dockerize backend + frontend + PostgreSQL
+- Dockerize frontend (Angular + Nginx)
 - Add docker-compose for full stack startup
 - Add CI/CD pipeline (GitHub Actions)
 - Add unit tests (backend + frontend)
