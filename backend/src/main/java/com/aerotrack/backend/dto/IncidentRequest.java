@@ -5,8 +5,25 @@ import com.aerotrack.backend.entity.Status;
 import jakarta.validation.constraints.NotBlank;
 
 public class IncidentRequest {
-    @NotBlank public String title;
-    @NotBlank public String description;
-    public Severity severity;
-    public Status status;
+
+    @NotBlank
+    private String title;
+
+    @NotBlank
+    private String description;
+
+    private Severity severity;
+    private Status status;
+
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
+
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
+
+    public Severity getSeverity() { return severity; }
+    public void setSeverity(Severity severity) { this.severity = severity; }
+
+    public Status getStatus() { return status; }
+    public void setStatus(Status status) { this.status = status; }
 }
