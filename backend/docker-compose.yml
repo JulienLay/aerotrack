@@ -11,9 +11,7 @@ services:
       - db
 
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/aerotrack_db
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: admin
+      SPRING_PROFILES_ACTIVE: dev
 
   db:
     image: postgres:16

@@ -1,9 +1,4 @@
 spring:
-  datasource:
-    url: jdbc:postgresql://db:5432/aerotrack_db
-    username: postgres
-    password: admin
-    driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:

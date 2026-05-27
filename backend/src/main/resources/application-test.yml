@@ -3,6 +3,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/aerotrack_db
     username: postgres
     password: admin
+
   jpa:
     hibernate:
       ddl-auto: create-drop
